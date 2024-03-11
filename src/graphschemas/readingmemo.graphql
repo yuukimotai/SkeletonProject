@@ -1,0 +1,70 @@
+type ReadingMemo {
+  memoId: String!
+  userId: String!
+  janCode: String!
+  title: String
+  author: String
+  content: String
+}
+
+input NewReadingMemo {
+  memoId: String
+  userId: String
+  janCode: String
+  title: String
+  author: String
+  content: String
+}
+
+input GetMemo {
+  memoId: String!
+  userId: String!
+  janCode: String!
+}
+
+input GetAllMemo {
+  janCode: String!
+}
+
+input UpdateReadingMemo {
+  memoId: String!
+  userId: String!
+  janCode: String!
+  title: String
+  author: String
+  content: String
+}
+
+input DeleteReadingMemo {
+  memoId: String!
+  janCode: String!
+}
+
+query findAllReadingMemo($input: GetAllMemo!) {
+  ReadingMemos(input: $input) {
+    janCode
+    title
+    content
+  }
+}
+
+mutation createReadingMemo($input: NewReadingMemo!) {
+  createReadingMemo(input: $input) {
+    janCode
+    title
+    content
+  }
+}
+
+mutation updateReadingMemo($input: UpdateReadingMemo!) {
+  updateReadingMemo(input: $input) {
+    memoId
+    janCode
+    title
+    content
+  }
+}
+
+mutation deleteReadingMemo($input: DeleteReadingMemo!) {
+  deleteReadingMemo(input: $input)
+}

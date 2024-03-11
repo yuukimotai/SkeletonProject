@@ -1,0 +1,25 @@
+ query findAllMyBook {
+  findAllMyBook {
+    title
+    author
+    janCode
+    publisherName
+    itemUrl
+    largeImageUrl
+    mediumImageUrl
+    myBook
+  }
+ }
+
+mutation createMyBookData($input: NewBook!) {
+  createMyBookData(input: $input) {
+      title
+			author
+			janCode
+  }
+}
+
+input FindBook {
+  userid: String!
+  janCode: String
+}

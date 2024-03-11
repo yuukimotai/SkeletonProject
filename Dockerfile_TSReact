@@ -1,0 +1,7 @@
+FROM alpine:3.18
+ENV NODE_VERSION 20.11.1
+WORKDIR /usr/obserbooks
+RUN apk add npm && npm install -g vite@latest
+EXPOSE 5173
+RUN npm create vite obserbooks -- --template react-ts
+COPY src/ /usr/obserbooks/client
