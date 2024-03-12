@@ -1,7 +1,15 @@
 FROM alpine:3.18
 ENV NODE_VERSION 20.11.1
-WORKDIR /usr/obserbooks
+WORKDIR /usr
 RUN apk add npm && npm install -g vite@latest
 EXPOSE 5173
 RUN npm create vite obserbooks -- --template react-ts
-COPY src/ /usr/obserbooks/client
+WORKDIR /usr/obserbooks
+RUN npm install
+COPY client/src/ /usr/obserbooks/src
+RUN npm install react-hook-form \
+  && npm install react-modal && npm install react-router-dom \
+  && npm install universal-cookie && npm install urql \
+  && npm install axios \
+  && npm install -D tailwindcss postcss autoprefixer \
+  && npx tailwindcss init -p
