@@ -1,0 +1,3 @@
+FROM mysql/mysql-server:8.0
+ENV LANG ja_JP.UTF-8
+RUN mysql -u test_user -p
