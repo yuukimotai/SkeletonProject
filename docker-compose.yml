@@ -20,6 +20,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
     tty: true
   go:
+    container_name: go-server
     build:
       context: .
       dockerfile: Dockerfile_Go
