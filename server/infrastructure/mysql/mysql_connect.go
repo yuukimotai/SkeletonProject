@@ -24,9 +24,9 @@ func NewDB() (*DB, error) {
 
 	// 環境変数から値を取得
 	dsn := fmt.Sprintf(
-		"%s:%s@tcp(172.19.0.2:3306)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		"%s:%s@tcp(mysql-db)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		os.Getenv("MYSQL_USER"),
-		os.Getenv("MYSQL_ROOT_PASSWORD"),
+		os.Getenv("MYSQL_PASSWORD"),
 		os.Getenv("MYSQL_DATABASE"),
 	)
 
@@ -45,7 +45,7 @@ func NewDB() (*DB, error) {
 }
 
 func ConnectDatabase() {
-	dsn := "root:@tcp(127.0.0.1:3306)/test_database?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "yuuki:2733ek9se3pe@tcp(mysql-db)/test_database?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	print(db, err)
