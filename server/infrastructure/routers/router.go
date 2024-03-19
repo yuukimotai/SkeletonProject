@@ -30,7 +30,7 @@ func (r *Router) Run() error {
 		cors.New(cors.Config{
 			// アクセスを許可したいアクセス元
 			AllowOrigins: []string{
-				"http://localhost:5173",
+				"http://localhost:5174",
 			},
 			// アクセスを許可したいHTTPメソッド(以下の例だとPUTやDELETEはアクセスできません)
 			AllowMethods: []string{
