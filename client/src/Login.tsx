@@ -26,6 +26,7 @@ export const Login = () => {
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:5174',
       },
     }).then((response) => {
       var receivedJwt = response.data.jwt;
