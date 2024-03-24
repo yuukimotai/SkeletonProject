@@ -8,10 +8,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_TSReact
-      # mode_modules用の永続化Volumeを作成して2回目以降のnode_modulesの呼び出しを高速化
-      #- node_modules_volume:/app/node_modules
-      # npmを使って起動する
-      #command: sh -c "npm start"
     depends_on:
       - go
     ports:
